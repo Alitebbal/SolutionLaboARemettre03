@@ -1,11 +1,11 @@
 // Auteur : Ali Tebbal
 // Date : 04-10-2020
-/* but : Complétez ce programme pour qu’il donne la possibilité à l’utilisateur de deviner le nombre contenu dans iRandom.
-L’utilisateur a un maximum de 5 chances. Le programme vérifie que l’utilisateur a bien entré un nombre entre 0 et
-100 et lui indique s’il gagne ou dans le cas contraire lui indique le nombre d’essais restant et lui redemande un
+/* but : ComplÃ©tez ce programme pour quâ€™il donne la possibilitÃ© Ã  lâ€™utilisateur de deviner le nombre contenu dans iRandom.
+Lâ€™utilisateur a un maximum de 5 chances. Le programme vÃ©rifie que lâ€™utilisateur a bien entrÃ© un nombre entre 0 et
+100 et lui indique sâ€™il gagne ou dans le cas contraire lui indique le nombre dâ€™essais restant et lui redemande un
 nombre.
 
-Défi : Le programme pourrait indiquer si la valeur à trouver est plus grande ou plus petite que la dernière proposition 
+DÃ©fi : Le programme pourrait indiquer si la valeur Ã  trouver est plus grande ou plus petite que la derniÃ¨re proposition 
 */
 
 #include <iostream> 
@@ -14,41 +14,55 @@ using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "");
+	setlocale(LC_ALL, ""); // Pour gÃ©rer efficacement la conversion des caractÃ¨res accentuÃ©s
 
-	// Déclaration des variables
+	// DÃ©claration des variables
 
 	int compteur = 1;
 	int number;
-	int iRandom; // permet de mémoriser le nombre choisi aléatoirement par l’ordinateur
-	srand(time(0)); // pour activer l’aléatoire dans le programme
-	iRandom = rand() % 101; // l’ordinateur calcule un nombre aléatoire entre 0 et 100 et le stocke dans iRandom
+	int iRandom; // permet de mÃ©moriser le nombre choisi alÃ©atoirement par lâ€™ordinateur
+	srand(time(0)); // pour activer lâ€™alÃ©atoire dans le programme
+	iRandom = rand() % 101; // lâ€™ordinateur calcule un nombre alÃ©atoire entre 0 et 100 et le stocke dans iRandom
 
-	// Demander à l'utilisateur un nombre
+	// Demander Ã  l'utilisateur un nombre
 	cout << " Veuillez entrer un nombre : ";
 	cin >> number;
 
-	// Si le nombre entré n'est pas entre 0 et 100 le programme affiche un code d'erreur.
+	// Si le nombre entrÃ© n'est pas entre 0 et 100 le programme affiche un code d'erreur.
 	if (number >= 0 && number <= 100)
 	{
-		   compteur = 2; // Le programme commence à compter à partir de deux.
-			while (compteur <= 5) // le programme donne à l'utilisateur 5 chance pour deviner le bon chiffre.
+		   compteur = 2; // Le programme commence Ã  compter Ã  partir de deux.
+			while (compteur <= 5) // le programme donne Ã  l'utilisateur 5 chance pour deviner le bon chiffre.
 			{
 				if (number == iRandom)
-		        cout << " Vous avez gagné la devinette ";
+		        cout << " Vous avez gagnÃ© la devinette ";
 				else
 				cout << " Veuillez entrer un nombre " << compteur << " : ";
 				cin >> number;
 				compteur++;
             }
 		
-			cout << " Vous n'avez pas gagné la devinette ";
+			cout << " Vous n'avez pas gagnÃ© la devinette ";
 	}
 	else
     {
 			cout << " Erreur : veuillez entrer un chiffres entre 0 et 100  " << endl;
 			system("pause");
 	}
+	
+
+	/*
+  Plan de test 
+        chiffre entrÃ©                rÃ©sultat
+		 -5                   Erreur : veuillez entrer un chiffres entre 0 et 100
+         900                  Erreur : veuillez entrer un chiffres entre 0 et 100
+		 66                     Veuillez entrer un nombre 2 
+		 7                      Veuillez entrer un nombre 3
+		 12                     Veuillez entrer un nombre 4
+         99                     Veuillez entrer un nombre 5
+		 45   
+		                       Vous n'avez pas gagnÃ© la devinette
+*/
 		return 0;
 	
 }
