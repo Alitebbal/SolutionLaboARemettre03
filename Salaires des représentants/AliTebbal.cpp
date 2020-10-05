@@ -1,43 +1,38 @@
 // Auteur : Ali Tebbal
 // Date : 04-10-2020
 /*
-Une grosse sociÈtÈ de produits chimiques rÈmunËre ses reprÈsentants commerciaux ‡ la commission. Les
-reprÈsentants reÁoivent 250 $ par semaine plus 7.5% de leurs ventes brutes par semaine. Par exemple, un
-reprÈsentant qui vend pour 5000 $ de produits chimiques en une semaine, perÁoit un salaire de 250 $ plus 7.5 % de
+Une grosse soci√©t√© de produits chimiques r√©mun√®re ses repr√©sentants commerciaux √† la commission. Les
+repr√©sentants re√ßoivent 250 $ par semaine plus 7.5% de leurs ventes brutes par semaine. Par exemple, un
+repr√©sentant qui vend pour 5000 $ de produits chimiques en une semaine, per√ßoit un salaire de 250 $ plus 7.5 % de
 5000$, soit un total de 625 $.
-DÈveloppez un programme qui entre les ventes brutes hebdomadaires de chaque reprÈsentant et qui calcule et
-affiche son salaire. Entrez -1 ‡ la valeur des ventes pour quitter le programme
+D√©veloppez un programme qui entre les ventes brutes hebdomadaires de chaque repr√©sentant et qui calcule et
+affiche son salaire. Entrez -1 √† la valeur des ventes pour quitter le programme
 
-But : DÈveloppez un programme qui entre les ventes brutes hebdomadaires de chaque reprÈsentant et qui calcule et
-               affiche son salaire. Entrez - 1 ‡ la valeur des ventes pour quitter le programme. 
-               
- plan de test 
-   ventes           salaireTotal 
-   5000                625 
-   700                 302.5
-  -522                 Erreur
-   -1                  Fin du programme
- */
+But : D√©veloppez un programme qui entre les ventes brutes hebdomadaires de chaque repr√©sentant et qui calcule et
+               affiche son salaire. Entrez - 1 √† la valeur des ventes pour quitter le programme. 
+ */              
 
 #include <iostream>
 using namespace std;
 
  int main()
 {
-     // DÈclaration des variables
+       setlocale(LC_ALL, ""); // Pour g√©rer efficacement la conversion des caract√®res accentu√©s
+     
+     // D√©claration des variables
     float ventes;
     float pourcentage;
     float totalSalaire;
-    // DÈclaration des variables constantes
+    // D√©claration des variables constantes
    const int salaire = 250;
 
-     // Demander ‡ l'utilisateur combien de ventes a fait
+     // Demander √† l'utilisateur combien de ventes a fait
         cout << " Combien de ventes vous avez fait ? : ";
         cin >> ventes;
         
             while (ventes != -1 ) // Si le l'utilisateur entre -1, il mit fin au programme 
             {
-                if (ventes > 0)  // Si le chiffre est nÈgative le programme affiche un message d'erreur.
+                if (ventes > 0)  // Si le chiffre est n√©gative le programme affiche un message d'erreur.
                 {
                     pourcentage = ventes * 7.5 / 100;
                     totalSalaire = pourcentage + salaire;
@@ -57,6 +52,16 @@ using namespace std;
                    
                 }
             }
+   
+   /*
+          plan de test
+                ventes           salaireTotal
+                5000                625 $
+                700                 302.5 $
+                - 522              Erreur : veuillez entrez un chiffres positive 
+                555                 291.6 $
+                - 1                 Fin du programme
+ */
             
   return 0;
 } 
